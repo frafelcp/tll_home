@@ -12,99 +12,60 @@ import javax.swing.JOptionPane;
  *
  * @author ADMIN
  */
-public class tres {
+public class cuatro {
 
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in);
-
-        //MENU
+        //LEER PRIMER VECTOR
         //variables
-        int op;
+        int canNum1;
+        int[] vNum1;
 
         //inicializacion
-        System.out.println("Menu\n1.Usando cadena como vector\n2.Usando vector");
-        op = leer.nextInt();
+        canNum1 = Integer.parseInt(JOptionPane.showInputDialog("cantidad de numeros"));
+        vNum1 = new int[canNum1];
 
-        //seleccion de opcion
-        switch (op) {
-            case 1:
-                //LEER PALABRA
-                //variables
-                String palString;
+        //leer vector
+        for (int i = 0; i < vNum1.length; i++) {
+            vNum1[i] = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el "
+                    + "numero " + (i + 1)));
+        }        
 
-                //inicializacion
-                System.out.print("Ingrese una palabra:");
-                palString = leer.next();
+        //LEER SEGUNDO VECTOR
+        //variables
+        int canNum2;
+        int[] vNum2;
 
-                //BUSCAR PALINDROMO
-                //variables
-                int in;
-                int de;
-                boolean bErr;
+        //inicializacion
+        canNum2 = canNum1;
+        vNum2 = new int[canNum2];
 
-                //inicializacion
-                in = 0;
-                de = palString.length() - 1;
-                bErr = false;
-
-                //comparamos
-                while ((in < de) && (!bErr)) {
-                    if (palString.charAt(in) == palString.charAt(de)) {
-                        in++;
-                        de--;
-                    } else {
-                        bErr = true;
-                    }
-                }
-
-                
-                break;
-            case 2:
-                //LEER PALABRA
-                //variables
-                String palabra;
-                String[] pala;
-
-                //inicializacion
-                System.out.print("Ingrese una palabra:");
-                palabra = leer.next();
-                pala = new String[palabra.length()];
-
-                //leer
-                System.out.println("Ingresar nuevamente la palabra " + palabra
-                        + " letra por letra");
-                for (int i = 0; i < pala.length; i++) {
-                    System.out.print("ingrese la letra " + palabra.charAt(i) + ":");
-                    pala[i] = leer.next();
-                }
-
-                //BUSCAR PALINDROMO
-                //variables
-                int inc;
-                int dec;
-                boolean bError;
-
-                //inicializacion
-                inc = 0;
-                dec = pala.length - 1;
-                bError = false;
-
-                //comparamos
-                while ((inc < dec) && (!bError)) {
-                    if (pala[inc].equals(pala[dec])) {
-                        inc++;
-                        dec--;
-                    } else {
-                        bError = true;
-                    }
-                }
-
-                if (!bError) {
-                    System.out.println(palabra + " es un PALINDROMO");
-                } else {
-                    System.out.println(palabra + " NO es un palindromo");
-                }
+        //leer vector
+        for (int i = 0; i < vNum2.length; i++) {
+            vNum2[i] = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el "
+                    + "numero " + (i + 1)));
         }
 
+        //VECTOR 3 DE SUMA DE VECTOR 1 Y 2
+        //variables
+        
+        int cantNum3;
+        int[] vSum;
+        String suma;
+
+        //inicializacion
+//        in = 0;
+        cantNum3 = canNum2;
+        vSum = new int[cantNum3];
+        suma = " ";
+
+        //suma
+        for (int i = 0; i < canNum1; i++) {
+            vSum[i] = vNum1[i] + vNum2[i];
+            suma = suma + vSum[i] + ", ";
+        }
+
+        //escribir vector suma
+        JOptionPane.showMessageDialog(null, "El vector suma es " + suma);        
     }
 }
