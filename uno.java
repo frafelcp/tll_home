@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package taller;
+package home;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,15 +23,15 @@ public class uno {
         Scanner leer = new Scanner(System.in);
         
         //inicializacion
-        System.out.print("ingrese la cantidad de numeros:");
-        canNum = leer.nextInt();
+        canNum = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad "
+                + "de numeros:"));
         
         numeros = new double[canNum];
         
         //LEER VECTOR
         for (int i = 0; i < numeros.length; i++) {
-            System.out.print("Ingrese un numero en la posicion " + (i + 1) + ":");
-            numeros[i] = leer.nextDouble();
+            numeros[i] = Double.parseDouble(JOptionPane.showInputDialog("Ingrese"
+                    + " un numero en la posicion " + (i + 1)));
         }
         
         //PROMEDIO
@@ -43,7 +44,7 @@ public class uno {
         
         prom = sum / numeros.length;
         
-        System.out.println("El promedio es:" + prom);
+        JOptionPane.showMessageDialog(null, "El promedio es:" + prom);
         
         //VECTORES MENOR IGUAL A PROMEDIO Y MAYOR AL PROMEDIO
         //menor igual al promedio
@@ -64,10 +65,10 @@ public class uno {
         }
         
         //escribir vector menor
-        System.out.println("Menores;");
         for (int i = 0; i < VMenor.length; i++) {            
             if (VMenor[i] <= prom && VMenor[i] != 0) {
-                System.out.print("El elemento " + (i + 1) + ":" + VMenor[i] + "\n");
+                JOptionPane.showMessageDialog(null, "El elemento " + (i + 1) + 
+                        ":" + VMenor[i]);
             } else {
                 System.out.println("No hay");
             }            
@@ -91,10 +92,10 @@ public class uno {
         }
         
         //escribir vector mayor
-        System.out.println("Mayores:");
         for (int i = 0; i < VMayor.length; i++) {            
             if (VMayor[i] > prom) {
-                System.out.print("El elemento " + (i + 1) + ":" + VMayor[i] + "\n");
+                JOptionPane.showMessageDialog(null, "El elemento " + (i + 1) + 
+                        ":" + VMayor[i]);
             } else {
                 System.out.println("No hay");
             }
